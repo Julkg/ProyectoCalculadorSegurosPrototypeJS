@@ -136,6 +136,13 @@ UI.prototype.mostrarResultado = (total, seguro) => {
             break;
     }
 
+    // total es un numero se transforma en string para asi poder usar el metodo .slice y solamente mostrar los primero 8 digitos ya que hay resultados con muchos ceros
+    console.log(total);
+    let totalToString = total.toString(10);
+    console.log(totalToString);
+
+
+
     //Crear el resultado
     const div = document.createElement('div');
     div.classList.add('mt-10');
@@ -149,8 +156,9 @@ UI.prototype.mostrarResultado = (total, seguro) => {
     
     <p class="font-bold p-1">Tipo de Seguro: <span class="font-normal capitalize"> ${tipo}</span> </p>
 
-    <p class="font-bold p-1">Total: <span class="font-normal"> $ ${total}</span> </p>
+    <p class="font-bold p-1">Total: <span class="font-normal"> $ ${totalToString.slice(0,7)}</span> </p>
     `
+
     const resultadoDiv = document.querySelector('#resultado');
 
     //Mostrar el spiner
